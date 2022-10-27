@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center;"></div>
+  </body>
+</html>
+<script>
+	const container = document.getElementById("container");
+
+	const networkRequest = async () => {
+		let request = await fetch("https://jsonplaceholder.typicode.com/todos/4");
+		let todo4 = await request.json();
+		let h2 = document.createElement("h2");
+		h2.innerHTML = todo4.title;
+		let button = document.createElement(`input`);
+		button.setAttribute("type", "checkbox");
+		button.setAttribute("checked", todo4.completed);
+		container.append(h2);
+		container.append(button);
+	};
+
+	networkRequest();
+</script>

@@ -1,0 +1,55 @@
+<html>
+  <body onload="initForm()">
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit" onclick="submitPersonForm(event)">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const personFormEL = document.querySelector("#person-form");
+  function initForm() {
+    const FN = document.createElement("input");
+    FN.setAttribute("type", "text");
+    FN.setAttribute("name", "firstName");
+    FN.setAttribute("placeholder", "firstName");
+    FN.setAttribute("class", "firstName");
+
+    //last name
+    const LN = document.createElement("input");
+    LN.setAttribute("type", "text");
+    LN.setAttribute("name", "lastName");
+    LN.setAttribute("placeholder", "lastName");
+    LN.setAttribute("class", "lastName");
+
+    //age
+    const AGE = document.createElement("input");
+    AGE.setAttribute("type", "text");
+    AGE.setAttribute("name", "age");
+    AGE.setAttribute("placeholder", "Age");
+    AGE.setAttribute("class", "age");
+
+    //append first name input
+    personFormEL.appendChild(FN);
+
+    //appen the last name input
+    personFormEL.appendChild(LN);
+
+    //append age input
+    personFormEL.appendChild(AGE);
+  }
+
+  function submitPersonForm(event) {
+    event.preventDefault();
+
+    const fnEl = document.querySelector(".firstName").value;
+    const Lnel = document.querySelector(".lastName").value;
+    const ageEl = document.querySelector(".age").value;
+
+    const person = { firstName: fnEl, lastname: Lnel, age: ageEl };
+    console.log(person);
+  }
+</script>

@@ -1,0 +1,30 @@
+<html>
+  <body>
+    <div id="container">
+      <ul class="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+
+  const todoList = document.querySelector(".todo-list"); //querySelector restituisce il primo elemento che corrisponde al selettore css
+
+    async function getRequest () {
+	  const request = await fetch('https://jsonplaceholder.typicode.com/todos'); // invia la richiesta e attende il completamento della richiesta
+		const todos = await request.json(); // prendiamo i singoli elementi 
+
+		  todos.forEach((item) => { 
+      const print = document.createElement("li");   // crea l'elemento specificato in tagName
+			print.innerHTML = item.title;  //innerHtml ci restituisce il contenuto html, la proprietà title il titolo del documento
+			todoList.append(print);
+      //Todolist è l'elemento
+      //Append il metodo che ci permette di aggiungere oggetti di tipo stringa
+
+		});
+	};
+	
+	getRequest(); 
+
+</script>
+  
